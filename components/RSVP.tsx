@@ -7,40 +7,33 @@ const RSVP: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   // ---------------------------------------------------------------------------
-  // INSTRUCTIONS FOR GOOGLE SHEETS:
-  // 1. Create a Google Sheet.
-  // 2. Go to Extensions > Apps Script.
-  // 3. Paste the script provided in the instructions.
-  // 4. Deploy as Web App -> Execute as: "Me" -> Who has access: "Anyone".
-  // 5. Paste the 'Web App URL' below inside the quotes.
+  // UPDATED URL: Use the specific Web App URL provided by the user
   // ---------------------------------------------------------------------------
-  const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzeZ2yXJHlN7oRlhrp1tMZbh4Ip0iopn7xQsiaVOAIcDcPi4Qq-el8n2ddlxezaGHyN/exec"; 
+  const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzeZ2yXJHlN7oRlhrp1tMZbh4Ip0iopn7xQsiaVOAIcDcPi4Qq-el8n2ddlxezaGHyN/exec";
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Create form data to send
-    const formData = new FormData();
-    formData.append('nama', name);
-    formData.append('kehadiran', attending === 'yes' ? 'Hadir' : 'Tidak Hadir');
-    formData.append('waktu', new Date().toLocaleString());
+    // We use URLSearchParams which is often more reliable for Apps Script
+    const data = new URLSearchParams();
+    data.append('nama', name);
+    data.append('kehadiran', attending === 'yes' ? 'Hadir' : 'Tidak Hadir');
+    data.append('waktu', new Date().toLocaleString());
 
     try {
-      if (!GOOGLE_SCRIPT_URL) {
-        console.warn("Google Script URL is empty. Submitting to console only.");
-        await new Promise(resolve => setTimeout(resolve, 1500));
-        console.log('Form Data:', { name, attending });
-        setSubmitted(true);
-        return;
-      }
-
+      console.log("Submitting to:", GOOGLE_SCRIPT_URL);
+      
       await fetch(GOOGLE_SCRIPT_URL, {
         method: 'POST',
-        body: formData,
-        mode: 'no-cors' // Important: 'no-cors' allows sending to Google Scripts
+        body: data,
+        mode: 'no-cors', // 'no-cors' is required for Google Apps Script
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
       });
 
+      // Because 'no-cors' mode is opaque, we assume success if no network error occurred.
       setSubmitted(true);
     } catch (error) {
       console.error('Error submitting form', error);
