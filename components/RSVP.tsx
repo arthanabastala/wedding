@@ -14,7 +14,7 @@ const RSVP: React.FC = () => {
   // 4. Deploy as Web App -> Execute as: "Me" -> Who has access: "Anyone".
   // 5. Paste the 'Web App URL' below inside the quotes.
   // ---------------------------------------------------------------------------
-  const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzngaFEgD8zggNiUvKnPCf9D_DW4Anqvw4Q3dHUIpw46ESzN2KMq_I8mgs5c7fiYeEO/exec"; 
+  const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzeZ2yXJHlN7oRlhrp1tMZbh4Ip0iopn7xQsiaVOAIcDcPi4Qq-el8n2ddlxezaGHyN/exec"; 
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
