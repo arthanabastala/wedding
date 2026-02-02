@@ -4,11 +4,50 @@ const RSVP: React.FC = () => {
   const [name, setName] = useState('');
   const [attending, setAttending] = useState<'yes' | 'no' | null>(null);
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  // ---------------------------------------------------------------------------
+  // INSTRUCTIONS FOR GOOGLE SHEETS:
+  // 1. Create a Google Sheet.
+  // 2. Go to Extensions > Apps Script.
+  // 3. Paste the script provided in the instructions.
+  // 4. Deploy as Web App -> Execute as: "Me" -> Who has access: "Anyone".
+  // 5. Paste the 'Web App URL' below inside the quotes.
+  // ---------------------------------------------------------------------------
+  const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzngaFEgD8zggNiUvKnPCf9D_DW4Anqvw4Q3dHUIpw46ESzN2KMq_I8mgs5c7fiYeEO/exec"; 
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('RSVP Submitted:', { name, attending });
-    setSubmitted(true);
+    setIsSubmitting(true);
+
+    // Create form data to send
+    const formData = new FormData();
+    formData.append('nama', name);
+    formData.append('kehadiran', attending === 'yes' ? 'Hadir' : 'Tidak Hadir');
+    formData.append('waktu', new Date().toLocaleString());
+
+    try {
+      if (!GOOGLE_SCRIPT_URL) {
+        console.warn("Google Script URL is empty. Submitting to console only.");
+        await new Promise(resolve => setTimeout(resolve, 1500));
+        console.log('Form Data:', { name, attending });
+        setSubmitted(true);
+        return;
+      }
+
+      await fetch(GOOGLE_SCRIPT_URL, {
+        method: 'POST',
+        body: formData,
+        mode: 'no-cors' // Important: 'no-cors' allows sending to Google Scripts
+      });
+
+      setSubmitted(true);
+    } catch (error) {
+      console.error('Error submitting form', error);
+      alert('Maaf, terjadi kesalahan saat mengirim data. Silakan coba lagi.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (submitted) {
@@ -54,10 +93,10 @@ const RSVP: React.FC = () => {
                   onChange={() => setAttending('yes')}
                   className="sr-only"
                 />
-               <span className={`w-5 h-5 rounded-full border border-gray-400 flex items-center justify-center group-hover:border-invitation-gold ${attending === 'yes' ? 'border-invitation-gold' : ''}`}>
+               <span className={`w-5 h-5 rounded-full border border-gray-400 flex items-center justify-center group-hover:border-invitation-gold transition-colors ${attending === 'yes' ? 'border-invitation-gold' : ''}`}>
                  {attending === 'yes' && <div className="w-3 h-3 bg-invitation-gold rounded-full" />}
                </span>
-               <span className={`font-sans text-sm uppercase tracking-wide ${attending === 'yes' ? 'text-invitation-dark' : 'text-gray-500'}`}>Akan Hadir</span>
+               <span className={`font-sans text-sm uppercase tracking-wide transition-colors ${attending === 'yes' ? 'text-invitation-dark' : 'text-gray-500'}`}>Akan Hadir</span>
              </label>
 
              <label className="flex items-center space-x-3 cursor-pointer group">
@@ -69,19 +108,19 @@ const RSVP: React.FC = () => {
                   onChange={() => setAttending('no')}
                   className="sr-only"
                 />
-               <span className={`w-5 h-5 rounded-full border border-gray-400 flex items-center justify-center group-hover:border-invitation-gold ${attending === 'no' ? 'border-invitation-gold' : ''}`}>
+               <span className={`w-5 h-5 rounded-full border border-gray-400 flex items-center justify-center group-hover:border-invitation-gold transition-colors ${attending === 'no' ? 'border-invitation-gold' : ''}`}>
                  {attending === 'no' && <div className="w-3 h-3 bg-invitation-gold rounded-full" />}
                </span>
-               <span className={`font-sans text-sm uppercase tracking-wide ${attending === 'no' ? 'text-invitation-dark' : 'text-gray-500'}`}>Maaf, Tidak Bisa</span>
+               <span className={`font-sans text-sm uppercase tracking-wide transition-colors ${attending === 'no' ? 'text-invitation-dark' : 'text-gray-500'}`}>Maaf, Tidak Bisa</span>
              </label>
           </div>
 
           <button
             type="submit"
-            disabled={!name || !attending}
-            className="w-full bg-invitation-dark text-white py-4 font-sans text-xs uppercase tracking-[0.2em] hover:bg-invitation-gold disabled:bg-gray-300 disabled:cursor-not-allowed transition-all duration-300"
+            disabled={!name || !attending || isSubmitting}
+            className="w-full bg-invitation-dark text-white py-4 font-sans text-xs uppercase tracking-[0.2em] hover:bg-invitation-gold disabled:bg-gray-400 disabled:cursor-not-allowed transition-all duration-300"
           >
-            Kirim Konfirmasi
+            {isSubmitting ? 'MENGIRIM...' : 'KIRIM KONFIRMASI'}
           </button>
         </form>
       </div>
