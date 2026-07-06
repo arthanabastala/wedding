@@ -74,7 +74,7 @@ function App() {
           <div className="absolute inset-0 bg-black/40"></div>
           <div className="relative z-10 text-center text-white px-4">
             <p className="font-sans uppercase tracking-[0.3em] text-sm md:text-base mb-6 animate-pulse">Save the Date</p>
-            <h1 className="font-great-vibes text-6xl md:text-8xl mb-4">Juun & Bagas</h1>
+            <h1 className="font-great-vibes text-6xl md:text-8xl mb-4">Saefudin & Salwa</h1>
             <p className="font-serif text-2xl italic">are getting married</p>
           </div>
           <div className="absolute bottom-10 animate-bounce">
@@ -87,21 +87,20 @@ function App() {
           <div className="max-w-2xl mx-auto">
             <h2 className="font-serif text-4xl text-invitation-dark mb-8">The Wedding Celebration</h2>
             <p className="font-sans text-gray-600 leading-relaxed mb-12">
-              Kami mengundang Anda untuk turut berbagi kebahagiaan dan dengan hormat mengharapkan kehadiran Anda pada pernikahan Juun dan Bagas. Bersama keluarga kami, kami menantikan sebuah malam yang penuh cinta, tawa, dan perayaan.
+              Kami mengundang Anda untuk turut berbagi kebahagiaan dan dengan hormat mengharapkan kehadiran Anda pada pernikahan Saefudin & Salwa. Bersama keluarga kami, kami menantikan sebuah malam yang penuh cinta, tawa, dan perayaan.
             </p>
             
             <div className="grid md:grid-cols-2 gap-12 mb-16">
               <div className="border-r-0 md:border-r border-gray-200 p-4">
-                <h3 className="font-great-vibes text-4xl text-invitation-gold mb-2">Kapan?</h3>
-                <p className="font-sans text-invitation-dark font-medium">Rabu, 5 Agustus 2026</p>
-                <p className="font-sans text-gray-500 text-sm mt-1">Akad Nikah 10:00 AM</p>
-                <p className="font-sans text-gray-500 text-sm">Resepsi 13:00 PM</p>
+                <h3 className="font-great-vibes text-4xl text-invitation-gold mb-2">Tanggal</h3>
+                <p className="font-sans text-invitation-dark font-medium">Sabtu, 1 Agustus 2026</p>
+                <p className="font-sans text-gray-500 text-sm mt-1">Akad Nikah 09:00 AM</p>
               </div>
               <div className="p-4">
-                <h3 className="font-great-vibes text-4xl text-invitation-gold mb-2">Dimana?</h3>
-                <p className="font-sans text-invitation-dark font-medium">Happo-en Garden</p>
-                <p className="font-sans text-gray-500 text-sm mt-1">1-1-1 Shirokanedai, Minato City</p>
-                <p className="font-sans text-gray-500 text-sm">Tokyo 108-8631, Japan</p>
+                <h3 className="font-great-vibes text-4xl text-invitation-gold mb-2">Tempat</h3>
+                <p className="font-sans text-invitation-dark font-medium">Kp. Ceger RT.001/03 Dusun 02</p>
+                <p className="font-sans text-gray-500 text-sm mt-1">Ds. Muktiwari Kec. Cibitung</p>
+                <p className="font-sans text-gray-500 text-sm">Kab. Bekasi</p>
               </div>
             </div>
 
@@ -137,7 +136,7 @@ function App() {
         {/* Footer */}
         <footer className="bg-invitation-dark text-invitation-cream py-16 text-center">
            <HeartIcon className="w-8 h-8 mx-auto mb-6 text-invitation-gold" />
-           <p className="font-great-vibes text-3xl mb-4">Juun & Bagas</p>
+           <p className="font-great-vibes text-3xl mb-4">Saefudin & Salwa</p>
            <p className="font-sans text-xs uppercase tracking-widest text-gray-400">Can't wait to see you there</p>
            <div className="mt-12 text-[10px] text-gray-600 font-sans">
              Designed with love by The Organizers
