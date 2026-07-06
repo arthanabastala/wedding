@@ -12,7 +12,7 @@ function App() {
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   // Set the event date to Wednesday, August 5, 2026 at 10:00 AM
-  const eventDate = "2026-08-05T10:00:00"; 
+  const eventDate = "2026-08-01T10:00:00"; 
   const googleMapsUrl = "https://share.google/QkdkCRaqZCVAS2PWo";
 
   useEffect(() => {
