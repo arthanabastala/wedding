@@ -59,7 +59,7 @@ const RSVP: React.FC = () => {
       <div className="max-w-lg mx-auto px-6">
         <div className="text-center mb-12">
           <h2 className="font-serif text-4xl text-invitation-dark mb-2">Konfirmasi Kehadiran</h2>
-          <p className="font-sans text-sm tracking-widest uppercase text-gray-500">Mohon konfirmasi sebelum 1 Juli 2026</p>
+          <p className="font-sans text-sm tracking-widest uppercase text-gray-500">Mohon konfirmasi sebelum 30 Juli 2026</p>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-8 bg-white p-8 md:p-12 shadow-sm border-t-4 border-invitation-gold">
