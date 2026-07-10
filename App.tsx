@@ -115,7 +115,7 @@ function App() {
                 <MapPinIcon className="w-12 h-12 text-invitation-gold mb-6" />
                 <h2 className="font-serif text-3xl mb-4">Tempat Acara</h2>
                 <p className="font-sans text-gray-600 mb-8 max-w-md">
-                  Rayakan hari bahagia kami di Happo-en Garden, taman Jepang yang indah dengan pepohonan rimbun, aliran air yang menenangkan, dan nuansa tradisional yang penuh keanggunan.
+                  Rayakan hari bahagia kami di kediaman kami yang berlokasi di Kp. Ceger RT.001/03 Dusun 02, Ds. Muktiwari, Kec. Cibitung, Kab. Bekasi. Kami menantikan kehadiran Anda untuk berbagi kebahagiaan dan menjadikan momen istimewa ini semakin berkesan bersama keluarga serta sahabat tercinta.
                 </p>
                 <a 
                   href={googleMapsUrl}
