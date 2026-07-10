@@ -13,7 +13,7 @@ function App() {
 
   // Set the event date to Wednesday, August 5, 2026 at 10:00 AM
   const eventDate = "2026-08-01T10:00:00"; 
-  const googleMapsUrl = "https://share.google/QkdkCRaqZCVAS2PWo";
+  const googleMapsUrl = "https://www.google.com/maps/search/?api=1&query=Kampung+Ceger+RT+001+RW+003+Dusun+02+Desa+Muktiwari+Cibitung+Bekasi";
 
   useEffect(() => {
     if (isInvitationOpen) {
