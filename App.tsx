@@ -94,7 +94,7 @@ function App() {
               <div className="border-r-0 md:border-r border-gray-200 p-4">
                 <h3 className="font-great-vibes text-4xl text-invitation-gold mb-2">Tanggal</h3>
                 <p className="font-sans text-invitation-dark font-medium">Sabtu, 1 Agustus 2026</p>
-                <p className="font-sans text-gray-500 text-sm mt-1">Akad Nikah 09:00 AM</p>
+                <p className="font-sans text-gray-500 text-sm mt-1">Resepsi: 09:00 AM</p>
               </div>
               <div className="p-4">
                 <h3 className="font-great-vibes text-4xl text-invitation-gold mb-2">Tempat</h3>
