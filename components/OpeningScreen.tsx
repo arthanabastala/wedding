@@ -16,7 +16,7 @@ const OpeningScreen: React.FC<OpeningScreenProps> = ({ onOpen }) => {
 
         <p className="text-invitation-gold uppercase tracking-[0.2em] text-sm mb-4">You are invited to the wedding of</p>
         
-        <h1 className="font-great-vibes text-5xl md:text-7xl text-invitation-dark mb-2">Saefudin</h1>
+        <h1 className="font-great-vibes text-5xl md:text-7xl text-invitation-dark mb-2">Sopiyudin</h1>
         <h1 className="font-great-vibes text-3xl md:text-5xl text-invitation-gold mb-2">&</h1>
         <h1 className="font-great-vibes text-5xl md:text-7xl text-invitation-dark mb-10">Salwa</h1>
 
